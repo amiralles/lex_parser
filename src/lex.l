@@ -55,6 +55,7 @@ CHAR    \'(\\.|[^'\\])\'
      * Please see http://flex.sourceforge.net for further details.
      */
 
+{INT}".."  { printf("%s (numeric literal)\n", yytext);   }
 {NUMLIT}   { printf("%s (numeric literal)\n", yytext);   }
 {STR}      { printf("%s (string)\n", yytext);            }
 {CHAR}     { printf("%s (character literal)\n", yytext); }
