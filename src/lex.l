@@ -25,7 +25,8 @@
 INT [0-9]+
 DBL (([1-9][0-9]*)|0)(\.[0-9][0-9]*)?
 HEX 0x[0-9a-fA-F]+
-NUMLIT  {INT}|{DBL}|{HEX}
+RNG {INT}..{INT}
+NUMLIT  {INT}|{DBL}|{HEX}|{RNG}
 
 ID      [a-zA-Z_][a-zA-Z0-9_]*
 LF      \n
