@@ -32,6 +32,7 @@ LF      \n
 WS      [ \t\r]+
 COMMENT "/*"([^*]|\*+[^*/])*\*+"/"
 STR     \"(\\.|[^"\\])*\"
+CHAR    \'(\\.|[^'\\])\'
 
 %%
     /*
@@ -53,8 +54,9 @@ STR     \"(\\.|[^"\\])*\"
      * Please see http://flex.sourceforge.net for further details.
      */
 
-{NUMLIT} { printf("%s (num-lit)\n", yytext); }
-{STR}    { printf("%s (string)\n", yytext); }
+{NUMLIT}   { printf("%s (numeric literal)\n", yytext);   }
+{STR}      { printf("%s (string)\n", yytext);            }
+{CHAR}     { printf("%s (character literal)\n", yytext); }
 accessor   |
 and        |
 array      |
@@ -96,6 +98,7 @@ while      { printf("%s (keyword)\n", yytext ); }
 
 {ID} { printf("%s (identifier)\n", yytext); }
 
+".." |
 "."  | 
 "<"  | 
 ">"  | 
@@ -112,7 +115,6 @@ while      { printf("%s (keyword)\n", yytext ); }
 "]"  |
 "="  |
 ":=" |
-".." |
 "<<" |
 ">>" |
 "<>" |
