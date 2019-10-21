@@ -1,0 +1,41 @@
+unit date interface
+    /*
+     * types
+     */
+    type date_type;
+    subtype date_year_type is natural;
+    type date_month_type is (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct,
+        Nov, Dec);
+    subtype date_day_type is positive range 1..31;
+    subtype date_hour_type is natural range 0..23;
+    subtype date_min_type is natural range 0..59;
+    subtype date_sec_type is natural range 0..59;
+    subtype date_msec_type is natural range 0..999;
+    /*
+    subtype date_usec_type is natural range 0..999;
+    subtype date_nsec_type is natural range 0..999;
+     */
+
+    /*
+     * routines
+     */
+    functor "="(lhs# date_type; rhs# date_type) rtrn boolean;
+    functor "<"(lhs# date_type; rhs# date_type) rtrn boolean;
+    accessor day(d# date_type) rtrn date_day_type;
+    mutator  day(d# in out date_type; day# in out date_day_type; b# out boolean);
+    functor day_is_valid(d# date_type; day# date_day_type) rtrn boolean;
+    accessor hour(d# date_type) rtrn date_hour_type;
+    mutator  hour(d# in out date_type; h# in date_hour_type);
+    functor is_leap_year(yr# date_year_type) rtrn boolean;
+    accessor min(d# date_type) rtrn date_min_type;
+    mutator  min(d# in out date_type; m# in date_min_type);
+    accessor month(d# date_type) rtrn date_month_type;
+    mutator  month(d# in out date_type; m# in date_month_type);
+    accessor msec(d# date_type) rtrn date_msec_type;
+    mutator  msec(d# in out date_type; m# in date_msec_type);
+    accessor sec(d# date_type) rtrn date_sec_type;
+    mutator  sec(d# in out date_type; s# in date_sec_type);
+    accessor year(d# date_type) rtrn date_year_type;
+    mutator  year(d# in out date_type; y# in date_year_type);
+
+end date;

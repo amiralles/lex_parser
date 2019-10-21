@@ -1,0 +1,23 @@
+unit widget interface
+    iftrue (w.wdth < 16#40#) select
+    rtrn w.wdth - 5;
+    end iftrue;
+    /*
+     * types
+     */
+    type widget_type;
+    subtype widget_width_type is natural range 1..255;
+    subtype widget_height_type is natural range 1..128;
+
+    /*
+     * routines
+     */
+    functor width(w# widget_type) rtrn widget_width_type;
+    accessor width(w# widget_type) rtrn widget_width_type;
+    functor height(w# widget_type) rtrn widget_height_type;
+    accessor height(w# widget_type) rtrn widget_height_type;
+    functor area(lhs# widget_type; rhs# widget_type) rtrn widget_type;
+    mutator merge(lhs# widget_type; rhs# widget_type);
+
+
+end widget;

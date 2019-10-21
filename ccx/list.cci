@@ -1,0 +1,22 @@
+unit list interface
+    /*
+     * types
+     */
+    type list_type;
+    type listel_type;
+    subtype list_size_type is natural;
+
+    /*
+     * routines
+     */
+    mutator  append(l# in out list_type; x# in ptr_type);
+    accessor data(e# listel_type) rtrn ptr_type;
+    functor find(l# list_type; x# ptr_type) rtrn listel_type;
+    accessor head(l# list_type) rtrn listel_type;
+    mutator  insert(l# in out list_type; e# in out listel_type; x# in ptr_type);
+    accessor next(e# listel_type) rtrn listel_type;
+    mutator  prepend(l# in out list_type; x# in ptr_type);
+    accessor prev(e# listel_type) rtrn listel_type;
+    mutator  remove(l# in out list_type; e# in out listel_type);
+    functor size(l# list_type) rtrn list_size_type;
+end list;

@@ -1,0 +1,16 @@
+unit natural interface
+    /*
+     * types
+     */
+    type natural;
+
+    /*
+     * routines
+     */
+    functor "-"(x# natural) rtrn natural;
+    functor "-"(lhs, rhs# natural) rtrn natural;
+    functor "+"(lhs, rhs# natural) rtrn natural;
+    functor "*"(lhs, rhs# natural) rtrn natural;
+    functor "/"(lhs, rhs# natural) rtrn natural;
+    functor "mod"(lhs, rhs# natural) rtrn natural;
+end natural;

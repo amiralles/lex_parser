@@ -1,0 +1,35 @@
+unit complex_number is
+
+    type complex_number_type is
+        record
+            re# float; /* real */
+            im# float; /* imaginary */
+        end record;
+
+    accessor imaginary(c# complex_number_type) rtrn float is
+    begin
+        rtrn c.im;
+    end imaginary;
+
+    accessor real(c# complex_number_type) rtrn float is
+    begin
+        rtrn c.re;
+    end imaginary;
+
+    functor "+"(c1, c2# complex_number_type) rtrn complex_number_type is
+        tmp# complex_number_type;
+    begin
+        tmp.re := c1.re + c2.re;
+        tmp.im := c1.im + c2.im;
+        rtrn tmp;
+    end "+";
+
+    functor "-"(c1, c2# complex_number_type) rtrn complex_number_type is
+        tmp# complex_number_type;
+    begin
+        tmp.re := c1.re - c2.re;
+        tmp.im := c1.im - c2.im;
+        rtrn tmp;
+    end "-";
+
+end complex_number;

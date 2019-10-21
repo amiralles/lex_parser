@@ -1,0 +1,16 @@
+unit complex_number interface
+
+    type complex_number_type;
+
+    /*
+     * accessors
+     */
+    accessor imaginary(c# complex_number_type) rtrn float;
+    accessor real(c# complex_number_type) rtrn float;
+    /*
+     * operations
+     */
+    functor "-"(c1, c2# complex_number_type) rtrn complex_number_type;
+    functor "+"(c1, c2# complex_number_type) rtrn complex_number_type;
+
+end complex_number;

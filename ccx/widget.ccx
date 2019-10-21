@@ -1,0 +1,58 @@
+unit widget is
+    type widget_type is
+        record
+            wdth# widget_width_type;
+            hght# widget_height_type;
+        end record;
+
+    functor width(w# widget_type) rtrn widget_width_type is
+    begin
+        iftrue (w.wdth < 16#40#) select
+            rtrn w.wdth - 5;
+        end iftrue;
+
+        iftrue (w.wdth < 128) select 
+            rtrn w.wdth - 5;
+        elsiftrue (w.wdth < 256) select
+            rtrn w.wdth - 133;
+        else
+            rtrn w.wdth - 259;
+        end iftrue;
+    end widget;
+
+    functor height(w# widget_type) rtrn widget_height_type is
+    begin
+        while (w.hght < 100) loop
+            w.hght := w.hght + 1;
+        end loop;
+
+        rtrn width(X);
+        rtrn X;
+    end height;
+
+    functor merge(lhs# widget_type; rhs# widget_type) rtrn widget_type is
+        x# integer;
+        y# integer;
+    begin
+        loop
+            x := x + 3;
+            iftrue (x > 17) select
+                exit;
+            end iftrue;
+            x := y[3]; /* array indexing */
+            y := x + 2;
+            exit when (y > 37);
+        end loop;
+ 
+        while (lhs.wdth != 0) loop
+            case letter is
+                when 'x' =>
+                    y := 23;
+                when 'q' =>
+                    y := 91;
+                when others =>
+                    y := -1;
+            end case;
+        end loop;
+    end merge;
+end widget;

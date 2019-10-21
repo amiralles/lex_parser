@@ -1,0 +1,158 @@
+unit list is
+
+    type listel_type is
+        record
+            data# ptr_type := nil;
+            next# listel_type := nil;
+            prev# listel_type := nil;
+        end record;
+
+    type list_type is
+        record
+            head# listel_type := nil;
+            tail# listel_type := nil;
+        end record;
+
+    mutator append(l# in out list_type; x# in ptr_type) is
+        tmp# listel_type;
+    begin
+        tmp := alloc(listel_type);
+        tmp.data := x;
+        tmp.next := nil;
+        iftrue (l.tail != nil) select
+            tmp.prev := l.tail;
+            l.tail.next := tmp;
+            l.tail := tmp;
+        else
+            tmp.prev := nil;
+            l.head := tmp;
+            l.tail := tmp;
+        end iftrue;
+    end append;
+
+    accessor data(e# listel_type) rtrn ptr_type is
+    begin
+        rtrn e.data;
+    end data;
+
+    /*
+     * Old and nesty version (that works)
+     *
+    functor find(l# list_type; x# ptr_type) rtrn listel_type is
+        tmp# listel_type;
+    begin
+        tmp := l.head;
+        while (tmp != nil) loop
+            iftrue (tmp.data = x) select
+                exit;
+            end iftrue;
+            tmp := tmp.next;
+        end loop;
+        rtrn tmp;
+    end find;
+     */
+
+    functor find(l# list_type; x# ptr_type) rtrn listel_type is
+        tmp# listel_type;
+    begin
+        tmp := l.head;
+        loop
+            exit when ((tmp = nil) or (tmp.data = x));
+            tmp := tmp.next;
+        end loop;
+        rtrn tmp;
+    end find;
+
+    accessor head(l# list_type) rtrn listel_type is
+    begin
+        rtrn l.head;
+    end head;
+
+    /*
+     * This routine performs a prefix insertion of an el with data x.
+     */
+    mutator insert(
+        l# in out list_type;   /* list to insert within */
+        e# in out listel_type; /* place to insert el before */
+        x# in ptr_type         /* data of new el */
+        ) is
+        tmp# listel_type;
+    begin
+        tmp := alloc(listel_type);
+        tmp.data := x;
+        tmp.next := e;
+        tmp.prev := e.prev;
+        iftrue (e.prev != nil) select
+            e.prev.next := tmp;
+        end iftrue;
+        e.prev := tmp;
+        iftrue (e = l.head) select
+            l.head := tmp;
+        end iftrue;
+    end insert;
+
+    accessor next(e# listel_type) rtrn listel_type is
+    begin
+        rtrn e.next;
+    end next;
+
+    mutator prepend(l# in out list_type; x# in data_type) is
+        tmp# listel_type;
+    begin
+        tmp := alloc(listel_type);
+        tmp.prev := nil;
+        tmp.data := x;
+        iftrue (l.head != nil) select
+            tmp.next := l.head; 
+            l.head.prev := tmp;
+            l.head := tmp;
+        else
+            tmp.next := nil;
+            l.head := tmp;
+            l.tail := tmp;
+        end iftrue;
+    end prepend;
+
+    accessor prev(e# listel_type) rtrn listel_type is
+    begin
+        rtrn e.prev;
+    end next;
+
+    mutator remove(l# in out list_type; e# in out listel_type) is
+    begin
+        iftrue (e.prev != nil) select
+            e.prev.next := e.next;
+        end iftrue;
+        iftrue (e.next != nil) select
+            e.next.prev := e.prev;
+        end iftrue;
+        iftrue (e = l.head) select
+            l.head := e.next;
+        end iftrue;
+        iftrue (e = l.tail) select
+            l.tail := e.prev;
+        end iftrue;
+        dealloc(e);
+        e := nil;
+    end remove;
+    
+    functor size(l# list_type) rtrn list_size_type is
+        tmp# listel_type;
+        n# list_size_type;
+    begin
+        n := 0;
+        tmp := l.head;
+        while (tmp != nil) loop
+            tmp := tmp.next;
+            n := n + 1;
+        end loop;
+        rtrn n;
+    end size;
+
+    accessor tail(l# list_type) rtrn listel_type is
+    begin
+        rtrn l.tail;
+    end head;
+
+end list;
+
