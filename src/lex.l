@@ -51,8 +51,8 @@ COMMENT "/*"([^*]|\*+[^*/])*\*+"/"
      */
 
 {NUMLIT} { printf("%s (num-lit)\n", yytext); }
-\"([^\\\"]|\\.)*\" { printf("\"%s\"\n", yytext);       }
-\'[a-zA-Z]|[0-9]\' { printf("'%s'\n", yytext);         }
+\"([^\\\"]|\\.)*\" { printf("%s\n", yytext); }
+\'[a-zA-Z]|[0-9]\' { printf("%s\n", yytext); }
 accessor   |
 and        |
 array      |
@@ -92,7 +92,7 @@ unit       |
 when       |
 while      { printf("%s (keyword)\n", yytext ); }
 
-ID   { printf("%s (identifier)\n", yytext); }
+{ID} { printf("%s (identifier)\n", yytext); }
 
 "."  | 
 "<"  | 

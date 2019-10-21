@@ -591,8 +591,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lex.l"
-#line 3 "lex.l"
+#line 1 "./src/lex.l"
+#line 3 "./src/lex.l"
 /*
  * This is part of the definitions section.  It starts with %{ and ends with %}.
  * Any text placed in this area will be copied verbatim into the lex.yy.c
@@ -795,7 +795,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 33 "lex.l"
+#line 33 "./src/lex.l"
 
     /*
      * This is the rules section.  It starts with the %% above and continues
@@ -901,180 +901,180 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 53 "lex.l"
+#line 53 "./src/lex.l"
 { printf("%s (num-lit)\n", yytext); }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 54 "lex.l"
-{ printf("\"%s\"\n", yytext);       }
+#line 54 "./src/lex.l"
+{ printf("%s\n", yytext); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 55 "lex.l"
-{ printf("'%s'\n", yytext);         }
+#line 55 "./src/lex.l"
+{ printf("%s\n", yytext); }
 	YY_BREAK
 case 4:
-#line 57 "lex.l"
+#line 57 "./src/lex.l"
 case 5:
-#line 58 "lex.l"
+#line 58 "./src/lex.l"
 case 6:
-#line 59 "lex.l"
+#line 59 "./src/lex.l"
 case 7:
-#line 60 "lex.l"
+#line 60 "./src/lex.l"
 case 8:
-#line 61 "lex.l"
+#line 61 "./src/lex.l"
 case 9:
-#line 62 "lex.l"
+#line 62 "./src/lex.l"
 case 10:
-#line 63 "lex.l"
+#line 63 "./src/lex.l"
 case 11:
-#line 64 "lex.l"
+#line 64 "./src/lex.l"
 case 12:
-#line 65 "lex.l"
+#line 65 "./src/lex.l"
 case 13:
-#line 66 "lex.l"
+#line 66 "./src/lex.l"
 case 14:
-#line 67 "lex.l"
+#line 67 "./src/lex.l"
 case 15:
-#line 68 "lex.l"
+#line 68 "./src/lex.l"
 case 16:
-#line 69 "lex.l"
+#line 69 "./src/lex.l"
 case 17:
-#line 70 "lex.l"
+#line 70 "./src/lex.l"
 case 18:
-#line 71 "lex.l"
+#line 71 "./src/lex.l"
 case 19:
-#line 72 "lex.l"
+#line 72 "./src/lex.l"
 case 20:
-#line 73 "lex.l"
+#line 73 "./src/lex.l"
 case 21:
-#line 74 "lex.l"
+#line 74 "./src/lex.l"
 case 22:
-#line 75 "lex.l"
+#line 75 "./src/lex.l"
 case 23:
-#line 76 "lex.l"
+#line 76 "./src/lex.l"
 case 24:
-#line 77 "lex.l"
+#line 77 "./src/lex.l"
 case 25:
-#line 78 "lex.l"
+#line 78 "./src/lex.l"
 case 26:
-#line 79 "lex.l"
+#line 79 "./src/lex.l"
 case 27:
-#line 80 "lex.l"
+#line 80 "./src/lex.l"
 case 28:
-#line 81 "lex.l"
+#line 81 "./src/lex.l"
 case 29:
-#line 82 "lex.l"
+#line 82 "./src/lex.l"
 case 30:
-#line 83 "lex.l"
+#line 83 "./src/lex.l"
 case 31:
-#line 84 "lex.l"
+#line 84 "./src/lex.l"
 case 32:
-#line 85 "lex.l"
+#line 85 "./src/lex.l"
 case 33:
-#line 86 "lex.l"
+#line 86 "./src/lex.l"
 case 34:
-#line 87 "lex.l"
+#line 87 "./src/lex.l"
 case 35:
-#line 88 "lex.l"
+#line 88 "./src/lex.l"
 case 36:
-#line 89 "lex.l"
+#line 89 "./src/lex.l"
 case 37:
-#line 90 "lex.l"
+#line 90 "./src/lex.l"
 case 38:
-#line 91 "lex.l"
+#line 91 "./src/lex.l"
 case 39:
-#line 92 "lex.l"
+#line 92 "./src/lex.l"
 case 40:
-#line 93 "lex.l"
+#line 93 "./src/lex.l"
 case 41:
 YY_RULE_SETUP
-#line 93 "lex.l"
+#line 93 "./src/lex.l"
 { printf("%s (keyword)\n", yytext ); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 95 "lex.l"
+#line 95 "./src/lex.l"
 { printf("%s (identifier)\n", yytext); }
 	YY_BREAK
 case 43:
-#line 98 "lex.l"
+#line 98 "./src/lex.l"
 case 44:
-#line 99 "lex.l"
+#line 99 "./src/lex.l"
 case 45:
-#line 100 "lex.l"
+#line 100 "./src/lex.l"
 case 46:
-#line 101 "lex.l"
+#line 101 "./src/lex.l"
 case 47:
-#line 102 "lex.l"
+#line 102 "./src/lex.l"
 case 48:
-#line 103 "lex.l"
+#line 103 "./src/lex.l"
 case 49:
-#line 104 "lex.l"
+#line 104 "./src/lex.l"
 case 50:
-#line 105 "lex.l"
+#line 105 "./src/lex.l"
 case 51:
-#line 106 "lex.l"
+#line 106 "./src/lex.l"
 case 52:
-#line 107 "lex.l"
+#line 107 "./src/lex.l"
 case 53:
-#line 108 "lex.l"
+#line 108 "./src/lex.l"
 case 54:
-#line 109 "lex.l"
+#line 109 "./src/lex.l"
 case 55:
-#line 110 "lex.l"
+#line 110 "./src/lex.l"
 case 56:
-#line 111 "lex.l"
+#line 111 "./src/lex.l"
 case 57:
-#line 112 "lex.l"
+#line 112 "./src/lex.l"
 case 58:
-#line 113 "lex.l"
+#line 113 "./src/lex.l"
 case 59:
-#line 114 "lex.l"
+#line 114 "./src/lex.l"
 case 60:
-#line 115 "lex.l"
+#line 115 "./src/lex.l"
 case 61:
-#line 116 "lex.l"
+#line 116 "./src/lex.l"
 case 62:
-#line 117 "lex.l"
+#line 117 "./src/lex.l"
 case 63:
-#line 118 "lex.l"
+#line 118 "./src/lex.l"
 case 64:
-#line 119 "lex.l"
+#line 119 "./src/lex.l"
 case 65:
-#line 120 "lex.l"
+#line 120 "./src/lex.l"
 case 66:
 YY_RULE_SETUP
-#line 120 "lex.l"
+#line 120 "./src/lex.l"
 { printf("%s (operator)\n", yytext); }
 	YY_BREAK
 case 67:
 /* rule 67 can match eol */
 YY_RULE_SETUP
-#line 122 "lex.l"
+#line 122 "./src/lex.l"
 { printf("%s (comment)", yytext); }
 	YY_BREAK
 case 68:
 /* rule 68 can match eol */
 YY_RULE_SETUP
-#line 123 "lex.l"
+#line 123 "./src/lex.l"
 { printf("%s", yytext);           }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 124 "lex.l"
+#line 124 "./src/lex.l"
 { /* discard whitespace */        }
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 125 "lex.l"
+#line 125 "./src/lex.l"
 { printf("%s (UNK)\n", yytext);   }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 127 "lex.l"
+#line 127 "./src/lex.l"
 ECHO;
 	YY_BREAK
 #line 1081 "lex.yy.c"
@@ -2074,7 +2074,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 127 "lex.l"
+#line 127 "./src/lex.l"
 
 
 /*
