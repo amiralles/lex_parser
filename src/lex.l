@@ -29,6 +29,7 @@ ID      [a-zA-Z_][a-zA-Z0-9_]*
 LF      \n
 WS      [ \t\r]+
 COMMENT "/*"([^*]|\*+[^*/])*\*+"/"
+STR     \"(\\.|[^"\\])*\"
 
 %%
     /*
@@ -51,8 +52,7 @@ COMMENT "/*"([^*]|\*+[^*/])*\*+"/"
      */
 
 {NUMLIT} { printf("%s (num-lit)\n", yytext); }
-\"([^\\\"]|\\.)*\" { printf("%s\n", yytext); }
-\'[a-zA-Z]|[0-9]\' { printf("%s\n", yytext); }
+{STR}    { printf("%s (string)\n", yytext); }
 accessor   |
 and        |
 array      |
@@ -119,10 +119,10 @@ while      { printf("%s (keyword)\n", yytext ); }
 "!=" |
 "=>" { printf("%s (operator)\n", yytext); }
  
-{COMMENT} { printf("%s (comment)", yytext); }
-{LF}      { printf("%s", yytext);           }
-{WS}      { /* discard whitespace */        }
-.         { printf("%s (UNK)\n", yytext);   }
+{COMMENT} { printf("%s (comment)\n", yytext); }
+{LF}      { /* printf("%s", yytext); */       }
+{WS}      { /* discard whitespace */          }
+.         { printf("%s (UNK)\n", yytext);     }
      
 %%
 /*
