@@ -22,9 +22,11 @@
      * is considered the start of a formal definition.
      */
 
-EXP     ([Ee][-+]?[0-9]+)
-INT     [0-9]+
-NUMLIT  {INT}|[0-9]+"."[0-9]*{EXP}?|"."?[0-9]+{EXP}?
+INT [0-9]+
+DBL (([1-9][0-9]*)|0)(\.[0-9][0-9]*)?
+HEX 0x[0-9a-fA-F]+
+NUMLIT  {INT}|{DBL}|{HEX}
+
 ID      [a-zA-Z_][a-zA-Z0-9_]*
 LF      \n
 WS      [ \t\r]+
